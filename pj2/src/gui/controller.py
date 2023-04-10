@@ -12,7 +12,8 @@ class Controller:
         lambda: self.changePage(self.view.right_frame)
 
     def push_left_btn(self):
-        print("L")
+        self.view.create_left_frame()
+        lambda: self.changePage(self.view.left_frame)
 
     def changePage(self, page):
         '''
