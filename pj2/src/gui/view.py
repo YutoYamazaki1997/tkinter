@@ -1,15 +1,31 @@
 import tkinter as tk
+from tkinter import ttk
+
+import sv_ttk
 
 
 class View():
     def __init__(self, app, model):
         self.master = app
         self.model = model
+        sv_ttk.set_theme("dark")
+        sv_ttk.use_light_theme()
 
         self.master.geometry("800x600+200+200")
         self.master.grid_rowconfigure(0, weight=1)
         self.master.grid_columnconfigure(0, weight=1)
+        self.set_dark_mode()
         self.create_widgets()
+
+    def set_dark_mode(self):
+        # テーマを変更する前に、使用可能なテーマを確認する
+        print(ttk.Style().theme_names())
+
+        # テーマをダークモードに変更する
+        ttk.Style().theme_use('xpnative')  # 例えばclamテーマを使用する
+
+        # テーマを変更する後に、使用可能なテーマを確認する
+        print(ttk.Style().theme_names())
 
     def create_widgets(self):
         self.create_main()
@@ -29,12 +45,3 @@ class View():
         self.right_frame.grid(row=0, column=0, sticky="nsew")
         self.right_label = tk.Label(self.right_frame, text="Right_frmae")
         self.right_label.pack()
-
-    def changePage(self, page):
-        '''
-        画面遷移用の関数
-        '''
-        page.tkraise()
-
-
-class LeftFrame():
