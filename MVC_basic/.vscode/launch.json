@@ -8,7 +8,7 @@
             "name": "Python: 現在のファイル",
             "type": "python",
             "request": "launch",
-            "program": "pj2/src/main.py",
+            "program": "src/main.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }
